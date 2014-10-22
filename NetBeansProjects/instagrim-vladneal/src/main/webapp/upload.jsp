@@ -26,7 +26,7 @@
                     %>
                 <li><a href="/Instagrim/Images/<%=lg.getUsername()%>">Your Images</a></li>
                 <li class="nav"><a href="/Instagrim/Images/majed">Sample Images</a></li>
-                <br>
+                
                 <li><% out.println("You are logged in as " + lg.getUsername());%></li>
                 <li><a href="/Instagrim/Logout">Logout</a></li>
                     <%}
@@ -43,7 +43,7 @@
             <h3>File Upload</h3>
             <form method="POST" enctype="multipart/form-data" action="Image">
                 File to upload: <input type="file" accept="image/*" name="upfile"><br/>
-                Caption: <input type="text" name="caption">
+                
                 <br/>
                 <input type="submit" value="Press"> to upload the file!
             </form>
