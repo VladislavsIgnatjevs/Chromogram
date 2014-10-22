@@ -24,8 +24,8 @@ import uk.ac.dundee.computing.aec.instagrim.models.User;
  *
  * @author Administrator
  */
-@WebServlet(name = "Register", urlPatterns = {"/Register"})
-public class Register extends HttpServlet {
+@WebServlet(name = "Delete_account", urlPatterns = {"/Delete_account"})
+public class Delete_account extends HttpServlet {
     Cluster cluster=null;
     public void init(ServletConfig config) throws ServletException {
         // TODO Auto-generated method stub
@@ -47,16 +47,14 @@ public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String username=request.getParameter("username");
-        String password=request.getParameter("password");
-        String email=request.getParameter("email");
-        String fullname=request.getParameter("fullname");
-        String location=request.getParameter("location");
         
         User us=new User();
         us.setCluster(cluster);
-        us.RegisterUser(username, password, email, fullname, location);
+        us.DeleteUser(username);
         
-	response.sendRedirect("register_success.jsp");
+       
+        
+	response.sendRedirect("Logout");
         
     }
 

@@ -50,8 +50,8 @@ public class Login extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
-        String first_name = request.getParameter("first_name");
-        String last_name = request.getParameter("last_name");
+        String fullname = request.getParameter("fullname");
+        String location = request.getParameter("location");
 
         if (username.equals("")) {
             error("Enter a username", response);
@@ -71,8 +71,8 @@ public class Login extends HttpServlet {
             lg.setLogedin();
             lg.setUsername(username);
             lg.setEmail(email);
-            lg.setFirstName(first_name);
-            lg.setLastName(last_name);
+            lg.setFullname(fullname);
+            lg.setLocation(location);
 
             session.setAttribute("LoggedIn", lg);
             System.out.println("Session in servlet " + session + username + lg.getUsername());
@@ -80,8 +80,8 @@ public class Login extends HttpServlet {
             rd.forward(request, response);
 
         } else {
-            error("Login Incorrect", response);
-            /* response.sendRedirect("/Instagrim/login.jsp"); */
+           
+           response.sendRedirect("/Instagrim/login_unsuccess.jsp");
         }
 
     }

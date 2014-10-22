@@ -104,5 +104,18 @@ public class User {
         return true;
     }
 
+     public boolean DeleteUser(String username){
+
+        Session session = cluster.connect("instagrim");
+        PreparedStatement ps = session.prepare("delete from userprofiles where login=?");
+       
+        BoundStatement boundStatement = new BoundStatement(ps);
+        session.execute( // this is where the query is executed
+                boundStatement.bind( // here you are binding the 'boundStatement'
+                        username));
+        //We are assuming this always works.  Also a transaction would be good here !
+        
+        return true;
+    }     
     
 }

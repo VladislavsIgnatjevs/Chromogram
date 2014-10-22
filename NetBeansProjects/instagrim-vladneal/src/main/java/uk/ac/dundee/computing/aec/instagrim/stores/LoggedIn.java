@@ -15,8 +15,8 @@ public class LoggedIn {
     boolean logedin = false;
     String username = null;
     String email = null;
-    String first_name = null;
-    String last_name = null;
+    String fullname = null;
+    String location = null;
 
     public void LogedIn() {
     }
@@ -37,20 +37,20 @@ public class LoggedIn {
         return email;
     }
 
-    public void setFirstName(String first_name) {
-        this.first_name = first_name;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
-    public String getFirstName() {
-        return first_name;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setLastName(String last_name) {
-        this.last_name = last_name;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getLastName() {
-        return last_name;
+    public String getLocation() {
+        return location;
     }
 
     public void setLogedin() {
