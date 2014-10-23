@@ -34,6 +34,11 @@ public final class Keyspaces {
                     + "picid uuid,\n"
                     + "user varchar,\n"
                     + "pic_added timestamp,\n"
+                    //very important column which indicates whether the pic is private 
+                    //or not. can be used in displaying users pics to other users
+                    + "isprivate varchar,\n"
+                    //info about the picture
+                    + "info varchar,\n"
                     + "PRIMARY KEY (user,pic_added)\n"
                     + ") WITH CLUSTERING ORDER BY (pic_added desc);";
             String CreateAddressType = "CREATE TYPE if not exists instagrim.address (\n"

@@ -54,11 +54,13 @@
                 Iterator<Pic> iterator;
                 iterator = lsPics.iterator();
                 while (iterator.hasNext()) {
-                    Pic p = (Pic) iterator.next(); %>
+                    Pic p = (Pic) iterator.next();
+                    %>
                     
             <a href="/Instagrim/Image/<%=p.getSUUID()%>" ><img src="/Instagrim/Thumb/<%=p.getSUUID()%>"></a><br/>
-            <a><% out.println(p.getCap());%></a></br>
-            <a href="/Instagrim/Delete/<%=p.getSUUID()%>" > Delete picture </a>
+            <a>Privacy: <% out.println(p.getPrivacy());%></a></br>
+            <a>About the picture: <% out.println(p.getInfo());%></a></br>
+            <a href="/Instagrim/Delete/<%=p.getSUUID()%>" > Delete picture </a><br><br/>
             <%}}%>
             
             

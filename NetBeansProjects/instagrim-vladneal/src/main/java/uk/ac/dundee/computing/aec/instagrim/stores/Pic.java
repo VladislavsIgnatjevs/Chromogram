@@ -20,7 +20,8 @@ public class Pic {
     private int length;
     private String type;
     private java.util.UUID UUID = null;
-    public String cap = null;
+    public String isprivate = null;
+    public String info = null;
 
     public void Pic() {
 
@@ -58,11 +59,19 @@ public class Pic {
         return image;
     }
 
-    public void setCap(String cap) {
-        this.cap = cap;
+    public void setInfo(String info) {
+        this.info = info;
     }
 
-    public String getCap() {
-        return cap;
+    public String getInfo() {
+        return info;
     }
+    
+    public void setPrivacy(String isprivate) {
+        this.isprivate = isprivate ;
+    }
+
+    public String getPrivacy() {
+        return isprivate;
+    }    
 }

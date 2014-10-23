@@ -42,9 +42,13 @@
             <!-- Added accept="image/*" to filter image types automatically in the browser-->
             <h3>File Upload</h3>
             <form method="POST" enctype="multipart/form-data" action="Image">
-                File to upload: <input type="file" accept="image/*" name="upfile"><br/>
-                
-                <br/>
+                <br>File to upload: <input type="file" accept="image/*" name="upfile"><br/>
+                <br> Privacy: <select id="privacy" name="isprivate">
+                         <option value="public">Public</option>
+                         <option value="private">Private</option>
+                </select> 
+                <br><br>About the picture: <input type="text" name="info">
+                <br><br/>
                 <input type="submit" value="Press"> to upload the file!
             </form>
 

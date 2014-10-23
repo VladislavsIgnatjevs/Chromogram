@@ -116,6 +116,8 @@ public class Image extends HttpServlet {
     //pm.getDate(java.util.UUID.fromString(uuidstring));
             
     }
+    
+    
     private void DisplayImageList(String User, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PicModel tm = new PicModel();
         tm.setCluster(cluster);
@@ -153,6 +155,9 @@ public class Image extends HttpServlet {
 
             String type = part.getContentType();
             String filename = part.getSubmittedFileName();
+            //works
+            String isprivate = request.getParameter("isprivate");
+            String info = request.getParameter("info");
             
             InputStream is = request.getPart(part.getName()).getInputStream();
             int i = is.available();
@@ -168,7 +173,7 @@ public class Image extends HttpServlet {
                 System.out.println("Length : " + b.length);
                 PicModel tm = new PicModel();
                 tm.setCluster(cluster);
-                tm.insertPic(b, type, filename, username);
+                tm.insertPic(b, type, filename, username, isprivate, info);
                 
             //popup window  
 
