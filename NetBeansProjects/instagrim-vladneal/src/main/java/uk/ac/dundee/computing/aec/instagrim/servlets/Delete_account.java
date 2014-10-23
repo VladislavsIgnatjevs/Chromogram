@@ -52,6 +52,11 @@ public class Delete_account extends HttpServlet {
         us.setCluster(cluster);
         us.DeleteUser(username);
         
+        //to prevent from dumping database need to remove pictures from the database as well
+       // us.DeletePicturesPICS(username);
+        //and from piclist too
+      //  us.DeletePicturesPICLIST(username);
+        
        
         
 	response.sendRedirect("Logout");

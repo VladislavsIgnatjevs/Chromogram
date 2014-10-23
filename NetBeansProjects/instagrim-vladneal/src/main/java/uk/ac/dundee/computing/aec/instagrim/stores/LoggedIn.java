@@ -8,7 +8,7 @@ package uk.ac.dundee.computing.aec.instagrim.stores;
 /**
  * Store designed to hold the logged in state of the session
  *
- * @author Will Neal
+ * @author Vladislavs Ignatjevs 
  */
 public class LoggedIn {
 

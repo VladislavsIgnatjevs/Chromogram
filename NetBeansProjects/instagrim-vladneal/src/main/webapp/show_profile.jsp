@@ -1,12 +1,11 @@
 <%-- 
     Document   : show_profile
-    Created on : Sep 28, 2014, 7:01:44 PM
+    Created on : 13-Oct-2014, 16:52:24
     Author     : Vladislavs Ignatjevs
 --%>
 
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="uk.ac.dundee.computing.aec.instagrim.stores.*" %>
+<%@page import="uk.ac.dundee.computing.aec.instagrim.stores.UserStore" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,37 +18,24 @@
             <h1>Chromogram</h1>
             <h2>Explore the world of apochromatic effects</h2>
         </header>
-        <nav>
-            <ul>
-
-               
-                <li><a href="upload.jsp">Upload</a></li>
-                    <%
-                        
-                        LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
-                        if (lg != null) {
-                            String UserName = lg.getUsername();
-                            if (lg.getlogedin()) {
-                    %>
-             
-                            <li><% out.println("Your username: " + lg.getUsername());%></li>
-                            <li><% out.println("Your email: " + lg.getEmail());%></li>
-                            <li><% out.println("Your fullname: " + lg.getFullname());%></li>
-                            <li><% out.println("Your location: " + lg.getLocation());%></li>
-                    <%}
-                            }else{
-                                %>
-                 <li><a href="register.jsp">Register</a></li>
-                <li><a href="login.jsp">Login</a></li>
-                <%
-                                        
-                            
-                    }%>
-            </ul>
-        </nav>
+        <h2>Your Information</h2>
+            <%
+                UserStore userStore = (UserStore) request.getAttribute("store");
+                String login = userStore.getUsername();
+                String email = userStore.getEmail();
+                String fullname = userStore.getFullname();
+                String location = userStore.getLocation();
+            %>
+        <ul>    
+            <li>Username: <%=login%></li>
+            <li>Email address: <%=email%></li>
+            <li>Full name is: <%=fullname%></li>
+            <li>Location: <%=location%></li>       
+        </ul>
         <footer>
             <ul>
                 <li class="footer"><a href="/Instagrim">Home</a></li>
+                <li><a href="/Instagrim/Logout">Logout</a></li>
                 <li>&COPY; Vladislavs Ignatjevs</li>
             </ul>
         </footer>

@@ -154,7 +154,7 @@ public class Image extends HttpServlet {
                 is.close();
             }
             
-            RequestDispatcher rd = request.getRequestDispatcher("/upload.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
              rd.forward(request, response);
         }
 

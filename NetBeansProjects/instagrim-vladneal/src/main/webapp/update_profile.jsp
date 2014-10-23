@@ -25,7 +25,7 @@
             <form method="POST"  action="Update">
                 <ul>
                     <li>Enter your user name <input type="text" name="username"></li>
-                    <li></li>
+                    <li>Please provide new details below:</li>
                     <li>Password <input type="password" name="password"></li>
                     <li>E-mail address<input type="text" name="email"></li>
                     <li>Full name<input type="text" name="fullname"></li>

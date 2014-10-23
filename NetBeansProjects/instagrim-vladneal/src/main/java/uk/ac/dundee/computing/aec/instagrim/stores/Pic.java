@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
 /**
  * Store designed to hold information regarding pictures
  *
- * @author Will Neal
+ * @author Vladislavs Ignatjevs
  */
 public class Pic {
 

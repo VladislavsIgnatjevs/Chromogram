@@ -23,7 +23,7 @@ import uk.ac.dundee.computing.aec.instagrim.stores.LoggedIn;
 /**
  * Servlet designed to handle login requests
  *
- * @author Will Neal
+ * @author Vladislavs Ignatjevs
  */
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
@@ -75,7 +75,7 @@ public class Login extends HttpServlet {
             lg.setLocation(location);
 
             session.setAttribute("LoggedIn", lg);
-            System.out.println("Session in servlet " + session + username + lg.getUsername());
+            System.out.println("Session in servlet " + session + username + lg.getUsername() );
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
 

@@ -16,6 +16,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import uk.ac.dundee.computing.aec.instagrim.lib.AeSimpleSHA1;
 import uk.ac.dundee.computing.aec.instagrim.stores.Pic;
+import uk.ac.dundee.computing.aec.instagrim.stores.LoggedIn;
+import uk.ac.dundee.computing.aec.instagrim.stores.UserStore;
 
 /**
  *
@@ -116,6 +118,61 @@ public class User {
         //We are assuming this always works.  Also a transaction would be good here !
         
         return true;
-    }     
+    }  
+     
+          public boolean DeletePicturesPICS(String username){
+
+        Session session = cluster.connect("instagrim");
+        PreparedStatement ps = session.prepare("delete from pics where user=?");
+       
+        BoundStatement boundStatement = new BoundStatement(ps);
+        session.execute( // this is where the query is executed
+                boundStatement.bind( // here you are binding the 'boundStatement'
+                        username));
+        //We are assuming this always works.  Also a transaction would be good here !
+        
+        return true;
+    }  
+          
+              public boolean DeletePicturesPICLIST(String username){
+
+        Session session = cluster.connect("instagrim");
+        PreparedStatement ps = session.prepare("delete from userpiclist where user=?");
+       
+        BoundStatement boundStatement = new BoundStatement(ps);
+        session.execute( // this is where the query is executed
+                boundStatement.bind( // here you are binding the 'boundStatement'
+                        username));
+        //We are assuming this always works.  Also a transaction would be good here !
+        
+        return true;
+    }        
+     
+     
+     
+        public UserStore getUserDetails(String username) {
+        /* Method designed to retrieve the user details and place them inside the UserStore. Based upon the IsValidUser method*/
+        Session session = cluster.connect("instagrim");
+        /* Next statement attempts to retrieve all from userprofiles, not just the "password" field as seen in IsValidUser */
+        PreparedStatement ps = session.prepare("select * from userprofiles where login =?");
+        /* Main statements to enable the database access are identical to IsValidUser */
+        ResultSet rs = null;
+        BoundStatement boundStatement = new BoundStatement(ps);
+        rs = session.execute(boundStatement.bind(username));
+        UserStore userStore = new UserStore();
+        if (rs.isExhausted()) {
+            System.out.println("Cannot find user entry");
+            return null;
+        } else {
+            for (Row row : rs) {
+                String login = row.getString("login");
+                String email = row.getString("email");
+                String fullname = row.getString("fullname");
+                String location = row.getString("location");
+                userStore.setUser(login, email, fullname, location);
+            }
+        }
+        return userStore;
+    }
     
 }

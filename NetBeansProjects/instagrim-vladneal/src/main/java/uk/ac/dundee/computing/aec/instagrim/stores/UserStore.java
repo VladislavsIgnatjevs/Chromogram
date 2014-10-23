@@ -8,14 +8,14 @@ package uk.ac.dundee.computing.aec.instagrim.stores;
 /**
  * Store created to hold user details for viewing on account page
  *
- * @author williamneal
+ * @author Vladislavs Ignatjevs
  */
 public class UserStore {
 
     private String username = null;
     private String email = null;
-    private String first_name = null;
-    private String last_name = null;
+    private String fullname = null;
+    private String location = null;
 
     public UserStore() {
     }
@@ -36,26 +36,27 @@ public class UserStore {
         return email;
     }
 
-    public void setFirstName(String first_name) {
-        this.first_name = first_name;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
-    public String getFirstName() {
-        return first_name;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setLastName(String last_name) {
-        this.last_name = last_name;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getLastName() {
-        return last_name;
+    public String getLocation() {
+        return location;
     }
 
-    public void setUser(String username, String email, String first_name, String last_name) {
+    public void setUser(String username, String email, String fullname, String location) {
         this.username = username;
         this.email = email;
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.fullname = fullname;
+        this.location = location;
     }
+    
 }
