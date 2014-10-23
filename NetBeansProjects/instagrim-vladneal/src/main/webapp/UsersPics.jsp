@@ -58,7 +58,9 @@
                     
             <a href="/Instagrim/Image/<%=p.getSUUID()%>" ><img src="/Instagrim/Thumb/<%=p.getSUUID()%>"></a><br/>
             <a><% out.println(p.getCap());%></a></br>
+            <a href="/Instagrim/Delete/<%=p.getSUUID()%>" > Delete picture </a>
             <%}}%>
+            
             
         </article>
         <footer>
