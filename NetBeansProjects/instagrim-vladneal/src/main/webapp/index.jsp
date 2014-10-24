@@ -33,6 +33,7 @@
                     %>
                                 <li><% out.println("Welcome back, " + lg.getUsername());%></li>
                                 <li><a href="upload.jsp">Upload Pictures</a></li>
+                                <li class="nav"><a href="/Instagrim/Images/majed">Shared Images</a></li>
                                 <li><a href="/Instagrim/Images/<%=lg.getUsername()%>">Your Images</a></li>
                                 <li><a href="/Instagrim/update_profile.jsp">Update Profile</a></li>
                                 <li><a href="/Instagrim/Profile/<%=lg.getUsername()%>">Show Profile</a></li>
