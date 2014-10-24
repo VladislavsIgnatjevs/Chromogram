@@ -135,28 +135,14 @@ public class PicModel {
     public java.util.LinkedList<Pic> getPicsForUser(String User) {
         java.util.LinkedList<Pic> Pics = new java.util.LinkedList<>();
         Session session = cluster.connect("instagrim");
-        PreparedStatement ps;
-        if ("maged".equals(User)){
-            ps = session.prepare("select picid, isprivate, info from userpiclist where isprivate = public");
-        }
-        else {
-            ps= session.prepare("select picid, isprivate, info from userpiclist where user =?");
-        }
+        PreparedStatement ps = session.prepare("select picid, isprivate, info from userpiclist where user =?");
         ResultSet rs = null;
         BoundStatement boundStatement = new BoundStatement(ps);
-            if ("majed".equals(User)){
         rs = session.execute( // this is where the query is executed
                 boundStatement.bind( // here you are binding the 'boundStatement'
-                ));
-            }
-            else 
-            {
-                 rs = session.execute( // this is where the query is executed
-                boundStatement.bind( // here you are binding the 'boundStatement'                                 
                         User));
-            }
         if (rs.isExhausted()) {
-            System.out.println("No Images returned for " +User);
+            System.out.println("No Images returned");
             return null;
         } else {
             for (Row row : rs) {
@@ -164,45 +150,15 @@ public class PicModel {
                 java.util.UUID UUID = row.getUUID("picid");
                 System.out.println("UUID" + UUID.toString());
                 pic.setUUID(UUID);
-                pic.setUser(row.getString("user"));
                 pic.setPrivacy(row.getString("isprivate"));
                 pic.setInfo(row.getString("info"));
                 Pics.add(pic);
+
             }
-            }
-        
+        }
         return Pics;
     }
-    
-    public java.util.LinkedList<Pic> getPics(String User) {
-        java.util.LinkedList<Pic> Pics = new java.util.LinkedList<>();
-        Session session = cluster.connect("instagrim");
-        PreparedStatement ps = session.prepare("select * from pics");
-        ResultSet rs = null;
-        BoundStatement boundStatement = new BoundStatement(ps);
-        rs = session.execute( // this is where the query is executed
-                boundStatement.bind( // here you are binding the 'boundStatement'
-                        ));
-         if (rs.isExhausted()) {
-             System.out.println("No Images returned");
-             return null;
-                 } else {
-             for (Row row : rs) {
-                 Pic pic = new Pic();
-                 java.util.UUID UUID = row.getUUID("picid");
-                 System.out.println("UUID" + UUID.toString());
-                 pic.setUUID(UUID);
-                 pic.setInfo(row.getString("info"));
-                 pic.setPrivacy(row.getString("isprivate"));
-                 Pics.add(pic);
-                 
- 
-             }
-         }
-    return Pics;
-    }
-         
-    
+
     public Pic getPic(int image_type, java.util.UUID picid) {
         Session session = cluster.connect("instagrim");
         ByteBuffer bImage = null;

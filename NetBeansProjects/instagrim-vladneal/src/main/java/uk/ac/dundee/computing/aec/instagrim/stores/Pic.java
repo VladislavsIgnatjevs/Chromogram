@@ -22,8 +22,6 @@ public class Pic {
     private java.util.UUID UUID = null;
     public String isprivate = null;
     public String info = null;
-    private String user;
-    private String name = null;
 
     public void Pic() {
 
@@ -75,14 +73,5 @@ public class Pic {
 
     public String getPrivacy() {
         return isprivate;
-    }   
-    
-    public void setUser(String user){
-        this.user = user;
-    }
-    public String getUser(){
-        return user;
-    }
-    
- 
+    }    
 }

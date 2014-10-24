@@ -25,7 +25,7 @@
         <nav>
             <ul>
                 <li class="nav"><a href="/Instagrim/upload.jsp">Upload</a></li>
-                <li class="nav"><a href="/Instagrim/Images/majed">Shared Images</a></li>
+                <li class="nav"><a href="/Instagrim/Images/majed">Sample Images</a></li>
                     <%
                         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
                         if (lg != null) {
@@ -58,7 +58,6 @@
                     %>
                     
             <a href="/Instagrim/Image/<%=p.getSUUID()%>" ><img src="/Instagrim/Thumb/<%=p.getSUUID()%>"></a><br/>
-            <a href="/Instagrim/Images/<%=p.getUser()%>" > <% out.println(p.getUser());%> </a>
             <a>Privacy: <% out.println(p.getPrivacy());%></a></br>
             <a>About the picture: <% out.println(p.getInfo());%></a></br>
             <a href="/Instagrim/Delete/<%=p.getSUUID()%>" > Delete picture </a><br><br/>

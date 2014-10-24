@@ -186,16 +186,6 @@ public class Image extends HttpServlet {
         }
 
     }
-    
-    private void DisplayAllImages(String User, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PicModel tm = new PicModel();
-        tm.setCluster(cluster);
-        java.util.LinkedList<Pic> lsPics = tm.getPics("*");
-        RequestDispatcher rd = request.getRequestDispatcher("/allpics.jsp");
-        request.setAttribute("allPics", lsPics);
-        rd.forward(request, response);
-
-    }
 
     private void error(String mess, HttpServletResponse response) throws ServletException, IOException {
 
