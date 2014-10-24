@@ -51,7 +51,6 @@ public final class Keyspaces {
                      + "     password text,\n"
                     + "      email text,\n"
                     + "      fullname text,\n"
-                    + "      email text,\n"
                     + "      location text,\n"
                     + "  );";
             Session session = c.connect();

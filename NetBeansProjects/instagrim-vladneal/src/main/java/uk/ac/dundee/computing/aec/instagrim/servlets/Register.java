@@ -54,11 +54,30 @@ public class Register extends HttpServlet {
         
         User us=new User();
         us.setCluster(cluster);
+        if(""!=username){
+            if (us.userExists(username)){
+                error("user "+username+" exists", response);
+            }
+        }
+        if (""!=username && ""!=password && ""!=email && ""!=fullname && ""!=location && !us.userExists(username)){
         us.RegisterUser(username, password, email, fullname, location);
         
 	response.sendRedirect("register_success.jsp");
+            }else{
+            error("All fields are required for the registration", response);
+         }
         
     }
+    
+         private void error(String error, HttpServletResponse response) throws ServletException, IOException {
+        PrintWriter out = null;
+         out = new PrintWriter(response.getOutputStream());
+         out.println(error);
+         out.println("Press the 'back' button to go back to register page");
+ 
+         out.close();
+         return;
+     } 
 
     /**
      * Returns a short description of the servlet.

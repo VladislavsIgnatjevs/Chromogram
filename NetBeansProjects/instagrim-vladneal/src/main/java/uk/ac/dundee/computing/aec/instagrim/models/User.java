@@ -85,6 +85,31 @@ public class User {
         this.cluster = cluster;
     }
        
+        public boolean userExists(String username){
+        
+        Session session = cluster.connect("instagrim");
+        PreparedStatement ps = session.prepare("select fullname from userprofiles where login =?");
+        ResultSet rs = null;
+        BoundStatement boundStatement = new BoundStatement(ps);
+        rs = session.execute( // this is where the query is executed
+                boundStatement.bind( // here you are binding the 'boundStatement'
+                        username));
+        if (rs.isExhausted()) {
+            System.out.println("No Images returned");
+            return false;
+        } else {
+            for (Row row : rs) {
+               
+                String StoredPass = row.getString("fullname");
+            
+                    return true;
+            
+            }
+        return false;
+        }
+        }
+        
+       
      public boolean UpdateUser(String location, String fullname, String email, String Password, String username){
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
