@@ -21,16 +21,48 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <!-- bjqs.css contains the *essential* css needed for the slider to work -->
-       
+        <link rel="stylesheet" href="/Instagrim/bjqs.css">   
         
          <!-- pretty font -->
          <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300' rel='stylesheet' type='text/css'> 
 
          <!-- demo.css contains additional styles used to set up this demo page - not required for the slider --> 
-        
+         <link rel="stylesheet" href="/Instagrim/demo.css">   
     <!-- load jQuery and the plugin -->
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script src="js/bjqs-1.3.min.js"></script>        
+    <script src="/Instagrim/js/bjqs-1.3.min.js"></script>   
+    
+    <style>
+ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+a {
+    float: left;
+    width: 6em;
+    text-decoration: none;
+    color: white;
+    background-color: purple;
+    padding: 0.2em 0.6em;
+    border-right: 1px solid white;
+    text-align: center;
+}
+
+a:hover {
+    background-color: fuchsia;
+    text-align: center;
+}
+
+li {
+    display: inline;
+}
+</style>
+    
     </head>
     <body>
         <header>
@@ -38,9 +70,10 @@
             <h3>explore the world of apochromatic effects</h3>
         </header>
         <nav>
-
+        
+           
             <ul>
-
+                        
                
 
                     <%
@@ -56,14 +89,15 @@
                             if (lg.getlogedin()) {
                     %>
                     
-                                <li><% out.println("Welcome back, " + lg.getUsername());%></li>
+                                <% out.println("Welcome back, " + lg.getUsername());%>
+                                
                                 <li><a href="upload.jsp">Upload Pictures</a></li>
                                 <li><a href="/Instagrim/Images/<%=lg.getUsername()%>">Your Images</a></li>
                                 <li><a href="/Instagrim/update_profile.jsp">Update Profile</a></li>
                                 <li><a href="/Instagrim/Profile/<%=lg.getUsername()%>">Show Profile</a></li>
                                 <li><a href="/Instagrim/Logout">Logout</a></li>
                                 <li><a href="/Instagrim/delete_account.jsp">Delete Account</a></li>
-                                <li><a href="/Instagrim/slideshow_test.jsp">slideshow</a></li>
+                               
                                 
                                 
 
@@ -79,7 +113,9 @@
                             
                     }%>
                 
-        </ul>
+                       
+                    </ul> 
+           
         </nav>   
             <div id="container">
   
@@ -144,7 +180,6 @@
        
         <footer>
             <ul>
-                <li class="footer"><a href="/Instagrim">Home</a></li>
                 <li>&COPY; Vladislavs Ignatjevs</li>
             </ul>
         </footer>
