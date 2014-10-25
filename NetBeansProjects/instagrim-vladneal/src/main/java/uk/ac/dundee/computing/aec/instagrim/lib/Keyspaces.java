@@ -36,7 +36,7 @@ public final class Keyspaces {
                     + "pic_added timestamp,\n"
                     //very important column which indicates whether the pic is private 
                     //or not. can be used in displaying users pics to other users
-                    + "isprivate varchar,\n"
+                    + "isprivate text,\n"
                     //info about the picture
                     + "info varchar,\n"
                     + "PRIMARY KEY (user,pic_added)\n"
@@ -53,6 +53,11 @@ public final class Keyspaces {
                     + "      fullname text,\n"
                     + "      location text,\n"
                     + "  );";
+            
+            //create userpiclist index string
+            
+            String CreateUserpiclistIndex = "create index userpiclist_isprivate on instagrim.userpiclist(isprivate);";
+            
             Session session = c.connect();
             try {
                 PreparedStatement statement = session
@@ -83,6 +88,19 @@ public final class Keyspaces {
             } catch (Exception et) {
                 System.out.println("Can't create user pic list table " + et);
             }
+            
+            //createuserpiclist index
+            
+             System.out.println("" + CreateUserpiclistIndex);
+
+            try {
+                SimpleStatement cqlQuery = new SimpleStatement(CreateUserpiclistIndex);
+                session.execute(cqlQuery);
+            } catch (Exception et) {
+                System.out.println("Can't create user pic list index for isprivate " + et);
+            }
+            
+            
             System.out.println("" + CreateAddressType);
             try {
                 SimpleStatement cqlQuery = new SimpleStatement(CreateAddressType);

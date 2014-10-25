@@ -49,7 +49,6 @@ public class Image extends HttpServlet {
     private Cluster cluster;
     private HashMap CommandsMap = new HashMap();
     
-    
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -159,6 +158,7 @@ public class Image extends HttpServlet {
             String isprivate = request.getParameter("isprivate");
             String info = request.getParameter("info");
             
+            
             InputStream is = request.getPart(part.getName()).getInputStream();
             int i = is.available();
             HttpSession session=request.getSession();
@@ -194,7 +194,7 @@ public class Image extends HttpServlet {
         out.println("<h1>You have a na error in your input</h1>");
         out.println("<h2>" + mess + "</h2>");
         out.close();
-        return;
+        
     }
 
   

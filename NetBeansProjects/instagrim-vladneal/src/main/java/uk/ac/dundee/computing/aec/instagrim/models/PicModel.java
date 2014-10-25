@@ -33,6 +33,9 @@ import java.util.LinkedList;
 import javax.imageio.ImageIO;
 import static org.imgscalr.Scalr.*;
 import org.imgscalr.Scalr.Method;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 import uk.ac.dundee.computing.aec.instagrim.lib.*;
 import uk.ac.dundee.computing.aec.instagrim.stores.Pic;
@@ -250,6 +253,46 @@ public class PicModel {
         
         
     }
+       
+      public static int randomNum(int min, int max) {
+
+      // NOTE: Usually this should be a field rather than a method
+      // variable so that it is not re-seeded every call.
+      Random random = new Random();
+
+      // nextInt is normally exclusive of the top value,
+      // so add 1 to make it inclusive
+      int randomNumber = random.nextInt((max - min) + 1) + min;
+
+      return randomNumber;
+      }
+       
+        public String getRandom(){
+        java.util.LinkedList<String> Pics = new java.util.LinkedList<>();
+
+        
+        Session session = cluster.connect("instagrim");
+        PreparedStatement ps = session.prepare("select picid from userpiclist where isprivate = 'public'");
+        ResultSet rs = null;
+        BoundStatement boundStatement = new BoundStatement(ps);
+        rs = session.execute( // this is where the query is executed
+                boundStatement.bind( 
+                        ));
+        if (rs.isExhausted()) {
+            System.out.println("error");
+            return null;
+        } else {
+            for (Row row : rs) {
+                Pics.add(row.getUUID("picid").toString());
+
+            }
+        }
+        
+        Collections.shuffle(Pics, new Random(Pics.size()));
+        return Pics.get(randomNum(0,Pics.size()-1));
+    }
+       
+
        
 
 
