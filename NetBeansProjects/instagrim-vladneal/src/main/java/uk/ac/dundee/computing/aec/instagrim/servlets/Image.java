@@ -186,7 +186,7 @@ public class Image extends HttpServlet {
         }
 
     }
-
+//reference: This method is rewrited by me, but the original goes to Alexander Macdonald
     private void error(String mess, HttpServletResponse response) throws ServletException, IOException {
 
         PrintWriter out = null;

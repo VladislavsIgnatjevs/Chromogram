@@ -218,6 +218,8 @@ public class PicModel {
 
     }
     
+        //reference: This method is rewrited by me, but the original goes to Alexander Macdonald
+    
         public Date getDate(java.util.UUID picid){
         Date added = new Date();
         Session session = cluster.connect("instagrim");
@@ -240,7 +242,8 @@ public class PicModel {
         return added;
     }
     
-    
+    //reference: This method is rewrited by me, but the original goes to Alexander Macdonald
+        
        public void deletePicture(java.util.UUID picid, String user){
         Date date = getDate(picid);
         Session session = cluster.connect("instagrim");
@@ -254,6 +257,7 @@ public class PicModel {
         
     }
        
+      //found this method in the internet, at one of the forums(unfortunately lost the link) 
       public static int randomNum(int min, int max) {
 
       // NOTE: Usually this should be a field rather than a method
