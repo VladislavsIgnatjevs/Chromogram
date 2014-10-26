@@ -36,7 +36,7 @@
             <ul>
                               
                                 <li class='active'><a  href="/Instagrim/">Home</a></li>
-                                <li><a href="upload.jsp">Upload Pictures</a></li>
+                                <li><a href="/Instagrim/upload.jsp">Upload Pictures</a></li>
                                 <li><a href="/Instagrim/Images/<%=lg.getUsername()%>">Your Images</a></li>
                                 <li><a href="/Instagrim/update_profile.jsp">Update Profile</a></li>
                                 <li><a href="/Instagrim/Profile/<%=lg.getUsername()%>">Show Profile</a></li>
