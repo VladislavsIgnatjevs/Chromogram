@@ -9,6 +9,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+         <!-- pretty font -->
+         <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300' rel='stylesheet' type='text/css'> 
+         <link rel="stylesheet" type="text/css" href="demo.css" />       
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registration was successful</title>
     </head>

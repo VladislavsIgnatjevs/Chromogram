@@ -11,30 +11,43 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <!-- pretty font -->
+         <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300' rel='stylesheet' type='text/css'> 
+        
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Chromogram</title>
-        <link rel="stylesheet" type="text/css" href="/Instagrim/Styles.css" />
+        <link rel="stylesheet" type="text/css" href="/Instagrim/demo.css" />
     </head>
     <body>
         <header>
 
-            <h1>Chromogram</h1>
-            <h2>Explore the world of apochromatic effects</h2>
+            <img src="/Instagrim/img/chromologofin.jpg">
+            <h3>explore the world of apochromatic effects</h3>
         </header>
 
         <nav>
-            <ul>
-                <li class="nav"><a href="/Instagrim/upload.jsp">Upload</a></li>
-                <li class="nav"><a href="/Instagrim/Images/majed">Sample Images</a></li>
+            
+            
+
+      
                     <%
                         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
                         if (lg != null) {
                             String UserName = lg.getUsername();
                             if (lg.getlogedin()) {
                     %>
-               
-                <li><% out.println("You are logged in as " + lg.getUsername());%></li>
-                <li><a href="/Instagrim/Logout">Logout</a></li>
+                <div id="cssmenu">        
+            <ul>
+                              
+                                <li class='active'><a  href="/Instagrim/">Home</a></li>
+                                <li><a href="upload.jsp">Upload Pictures</a></li>
+                                <li><a href="/Instagrim/Images/<%=lg.getUsername()%>">Your Images</a></li>
+                                <li><a href="/Instagrim/update_profile.jsp">Update Profile</a></li>
+                                <li><a href="/Instagrim/Profile/<%=lg.getUsername()%>">Show Profile</a></li>
+                                <li><a href="/Instagrim/Logout">Logout</a></li>
+                                <li><a href="/Instagrim/delete_account.jsp">Delete Account</a></li>
+                                
+                                              
                     <%}
                     } else {
                     %>
@@ -43,7 +56,9 @@
         </nav>
 
         <article>
-            <h1>Your Pics</h1>
+            
+            <br><br/><br>
+            <h1>Your pictures</h1>
             <%
                 java.util.LinkedList<Pic> lsPics = (java.util.LinkedList<Pic>) request.getAttribute("Pics");
                 if (lsPics == null) {
@@ -67,7 +82,7 @@
         </article>
         <footer>
             <ul>
-                <li class="footer"><a href="/Instagrim">Home</a></li>
+                <li>&COPY; Vladislavs Ignatjevs</li>
             </ul>
         </footer>
     </body>

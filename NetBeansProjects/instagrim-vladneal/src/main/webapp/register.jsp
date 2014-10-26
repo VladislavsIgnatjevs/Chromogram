@@ -5,23 +5,27 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="uk.ac.dundee.computing.aec.instagrim.stores.*" %>
+<%@ page import="uk.ac.dundee.computing.aec.instagrim.models.*" %>
+<%@ page import = "uk.ac.dundee.computing.aec.instagrim.lib.CassandraHosts" %>
+<%@ page import = "com.datastax.driver.core.Cluster" %>
 <!DOCTYPE html>
 <html>
     <head>
+         <!-- pretty font -->
+         <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300' rel='stylesheet' type='text/css'> 
+                
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Chromogram</title>
-        <link rel="stylesheet" type="text/css" href="Styles.css" />
+        <link rel="stylesheet" type="text/css" href="demo.css" />
     </head>
     <body>
         <header>
-            <h1>Chromogram</h1>
-            <h2>Explore the world of apochromatic effects</h2>
+            <img src="/Instagrim/img/chromologofin.jpg">
+            <h3>explore the world of apochromatic effects</h3>
         </header>
         <nav>
-            <ul>
-                
-                <li><a href="/Instagrim/Images/majed">Sample Images</a></li>
-            </ul>
+            
         </nav>
        
         <article>
@@ -292,7 +296,7 @@
         </article>
         <footer>
             <ul>
-                <li class="footer"><a href="/Instagrim">Home</a></li>
+                <li>&COPY; Vladislavs Ignatjevs</li>
             </ul>
         </footer>
     </body>

@@ -32,36 +32,8 @@
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="/Instagrim/js/bjqs-1.3.min.js"></script>   
     
-    <style>
-ul {
-    float: left;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    text-align: center;
-}
 
-a {
-    float: left;
-    width: 6em;
-    text-decoration: none;
-    color: white;
-    background-color: purple;
-    padding: 0.2em 0.6em;
-    border-right: 1px solid white;
-    text-align: center;
-}
-
-a:hover {
-    background-color: fuchsia;
-    text-align: center;
-}
-
-li {
-    display: inline;
-}
-</style>
+    
     
     </head>
     <body>
@@ -71,7 +43,7 @@ li {
         </header>
         <nav>
         
-           
+    <div id="cssmenu">        
             <ul>
                         
                
@@ -89,15 +61,15 @@ li {
                             if (lg.getlogedin()) {
                     %>
                     
-                                <% out.println("Welcome back, " + lg.getUsername());%>
                                 
+                                <li class='active'><a  href="/Instagrim/">Home</a></li>
                                 <li><a href="upload.jsp">Upload Pictures</a></li>
                                 <li><a href="/Instagrim/Images/<%=lg.getUsername()%>">Your Images</a></li>
                                 <li><a href="/Instagrim/update_profile.jsp">Update Profile</a></li>
                                 <li><a href="/Instagrim/Profile/<%=lg.getUsername()%>">Show Profile</a></li>
                                 <li><a href="/Instagrim/Logout">Logout</a></li>
                                 <li><a href="/Instagrim/delete_account.jsp">Delete Account</a></li>
-                               
+                                
                                 
                                 
 
@@ -115,11 +87,15 @@ li {
                 
                        
                     </ul> 
-           
+
+    </div>     
         </nav>   
             <div id="container">
   
-      
+                <br>
+                
+                
+                <br/>
       <h2>Our random 10 public shared images</h2>
 
       <!--  Outer wrapper for presentation only, this can be anything you like -->
